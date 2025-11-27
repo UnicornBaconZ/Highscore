@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        --font-pressstart: "PressStart2P";
+    }
+}
+
+body {
+    font-family: var(--font-pressstart);
+}
