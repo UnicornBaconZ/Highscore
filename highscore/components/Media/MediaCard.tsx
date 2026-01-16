@@ -1,4 +1,6 @@
-export default function MediaCard({ item }) {
+import { MediaCardProps } from '@/models/MediaCardModel'
+
+export default function MediaCard({ item }: MediaCardProps) {
   return (
     <div className="border-2 border-[#2b2b2b] bg-[#f5e6c8] p-4 rounded-sm shadow-[3px_3px_0px_0px_#2b2b2b] space-y-3">
       <div className="flex items-center justify-between">
