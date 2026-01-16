@@ -36,10 +36,7 @@ export default function MediaCard({ item }: MediaCardProps) {
           <span
             key={genre}
             className="
-              text-xs px-2 py-1
-              bg-[#e6d7b8] text-[#2b2b2b]
-              border border-[#2b2b2b]
-              rounded-sm
+              inline-flex items-center border-2 border-black bg-white px-2 py-0.5 text-xs font-semibold
             "
           >
             {genre}
