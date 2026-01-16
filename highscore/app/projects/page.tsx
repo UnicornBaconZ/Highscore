@@ -56,8 +56,7 @@ export default function ProjectsPage() {
       <div className="space-y-3">
         <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
         <p className="max-w-xl text-black/80">
-          Here’s a selection of my recent work, experiments, and portfolio
-          pieces.
+          Here’s a selection of my recent work and experiments.
         </p>
       </div>
 
