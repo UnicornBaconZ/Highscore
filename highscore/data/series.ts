@@ -12,7 +12,7 @@ export const seriesData = [
     id: 2,
     title: 'Demon Slayer',
     image: '/assets/series/demonslayer.jpg',
-    rating: 9.4,
+    rating: 9.2,
     description: "Boy fights demons to save his cursed sister's humanity.",
     genres: ['Action', 'Fantasy', 'Supernatural'],
   },
@@ -37,7 +37,7 @@ export const seriesData = [
     id: 5,
     title: 'Jujutsu Kaisen',
     image: '/assets/series/jujutsukaisen.jpg',
-    rating: 8.9,
+    rating: 8.6,
     description:
       'Cursed energy battles ensue as sorcerers fight monstrous threats.',
     genres: ['Action', 'Supernatural', 'Dark Fantasy'],
@@ -55,7 +55,7 @@ export const seriesData = [
     id: 7,
     title: 'Mashle',
     image: '/assets/series/mashle.jpg',
-    rating: 9.2,
+    rating: 8.7,
     description:
       'Magicless boy uses brute strength to conquer a magical world.',
     genres: ['Comedy', 'Action', 'Fantasy'],
@@ -64,7 +64,7 @@ export const seriesData = [
     id: 8,
     title: 'Attack on Titan',
     image: '/assets/series/aot.jpg',
-    rating: 8.5,
+    rating: 8,
     description:
       'Humanity battles titans while uncovering chilling truths about freedom.',
     genres: ['Action', 'Dark Fantasy', 'Drama'],
@@ -91,7 +91,7 @@ export const seriesData = [
     id: 11,
     title: 'Beastars',
     image: '/assets/series/beastars.jpg',
-    rating: 9.3,
+    rating: 9.1,
     description:
       'Carnivores and herbivores struggle with instincts, love, and societal divides.',
     genres: ['Drama', 'Romance', 'Psychological'],

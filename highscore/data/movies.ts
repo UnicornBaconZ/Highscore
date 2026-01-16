@@ -1,6 +1,14 @@
 export const moviesData = [
   {
     id: 1,
+    title: 'A Silent Voice',
+    image: '/assets/movies/asv.jpg',
+    rating: 8.2,
+    description: 'A former bully tries to make amends with a deaf classmate.',
+    genres: ['Drame', 'Slice of life', 'Romance'],
+  },
+  {
+    id: 2,
     title: 'Suzume',
     image: '/assets/movies/suzume.jpg',
     rating: 8.2,
@@ -8,7 +16,7 @@ export const moviesData = [
     genres: ['Adventure', 'Fantasy', 'Drama'],
   },
   {
-    id: 2,
+    id: 3,
     title: 'Your Name',
     image: '/assets/movies/your_name.jpg',
     rating: 8.4,
@@ -16,7 +24,7 @@ export const moviesData = [
     genres: ['Romance', 'Fantasy', 'Drama'],
   },
   {
-    id: 3,
+    id: 4,
     title: 'Josee, Tiger and the Fish',
     image: '/assets/movies/jttatf.jpg',
     rating: 9.4,
