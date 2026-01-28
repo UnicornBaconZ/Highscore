@@ -18,16 +18,6 @@ export default function ValentinePage() {
     portrait?: boolean
   }
 
-  function openWhatsApp() {
-    const phone = '0474888632' // <-- your number in international format (no +, no spaces)
-    const text = encodeURIComponent('I clicked YES 💖')
-    window.open(
-      `https://wa.me/${phone}?text=${text}`,
-      '_blank',
-      'noopener,noreferrer'
-    )
-  }
-
   function FramedBackground() {
     const photos: Photo[] = [
       {
@@ -166,7 +156,6 @@ export default function ValentinePage() {
                   <button
                     onClick={() => {
                       setAnswer('yes')
-                      openWhatsApp()
                     }}
                     className="px-6 py-3 rounded-2xl border border-black/20 shadow-sm bg-black text-white hover:scale-[1.02] active:scale-[0.98] transition"
                   >
