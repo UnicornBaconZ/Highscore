@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './tailwind.css'
-import { Navbar } from '@/components/Navbar'
 
 const pressStart = localFont({
   src: './fonts/PressStart2P-vaV7.ttf',
@@ -31,8 +30,7 @@ export default function RootLayout({
       className={`${pressStart.variable} ${cooperBlack.variable}`}
     >
       <body className="bg-[#F3EFE0] text-[#1A1A1A] font-pressstart">
-        <Navbar />
-        <main className="mx-auto max-w-5xl px-4 py-10">{children}</main>
+        {children}
       </body>
     </html>
   )
