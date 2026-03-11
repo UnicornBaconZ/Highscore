@@ -37,7 +37,7 @@ export default function SystemMonitor() {
       border-4 border-[#2b2b2b] bg-slate-950/80
       p-4 rounded-sm text-green-400
       shadow-[6px_6px_0px_0px_#2b2b2b]
-      w-56 font-mono text-xs space-y-3
+      w-56 h-56 font-mono text-xs space-y-3
     "
     >
       <div className="font-bold border-b border-green-400 pb-1 mb-2">

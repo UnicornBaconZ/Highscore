@@ -5,7 +5,7 @@ export default function BiosCard() {
       border-4 border-[#2b2b2b] bg-[#f5e6c8]
       p-4 rounded-sm
       shadow-[6px_6px_0px_0px_#2b2b2b]
-      w-56 font-mono text-xs
+      w-56 h-56 font-mono text-xs
     "
     >
       <div className="font-bold text-[#2b2b2b] border-b-2 border-[#2b2b2b] pb-1 mb-2">

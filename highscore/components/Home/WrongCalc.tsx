@@ -18,7 +18,7 @@ export default function WrongCalc() {
       border-4 border-[#2b2b2b] bg-[#FF9F1C]
       p-4 rounded-sm
       shadow-[6px_6px_0px_0px_#2b2b2b]
-      w-56 font-mono text-sm
+      w-56 h-56 font-mono text-sm
       space-y-3 text-[#2b2b2b]
     "
     >

@@ -7,9 +7,10 @@ export default function MediaTabs() {
   const pathname = usePathname()
 
   const tabs = [
-    { name: 'Series', href: '/media/series' },
+    { name: 'Anime', href: '/media/anime' },
     { name: 'Movies', href: '/media/movies' },
     { name: 'Music', href: '/media/music' },
+    { name: 'Series', href: '/media/series' },
   ]
 
   return (

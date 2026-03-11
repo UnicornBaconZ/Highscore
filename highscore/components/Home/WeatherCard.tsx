@@ -11,7 +11,7 @@ export default function WeatherCard() {
       border-4 border-[#2b2b2b] bg-[#4C7AFF]
       p-4 rounded-sm
       shadow-[6px_6px_0px_0px_#2b2b2b]
-      w-56 font-mono text-sm text-white
+      w-56 h-56 font-mono text-sm text-white
       space-y-2
       "
     >
