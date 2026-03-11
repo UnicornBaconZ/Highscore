@@ -8,16 +8,11 @@ export default function WeatherCard() {
   return (
     <div
       className="
-      border-4 border-[#2b2b2b] bg-[#4C7AFF]
-      p-4 rounded-sm
-      shadow-[6px_6px_0px_0px_#2b2b2b]
-      w-56 h-56 font-mono text-sm text-white
+      w-56 h-56 font-mono text-sm
       space-y-2
       "
     >
-      <div className="font-bold border-b-2 border-white pb-1">
-        WEATHER STATION
-      </div>
+      <div className="font-bold border-b-2  pb-1">WEATHER STATION</div>
 
       <div className="space-y-1">
         <div>

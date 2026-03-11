@@ -10,9 +10,6 @@ export default function SkillsCard() {
   return (
     <div
       className="
-      border-4 border-[#2b2b2b] bg-[#f5e6c8]
-      p-4 rounded-sm
-      shadow-[6px_6px_0px_0px_#2b2b2b]
       w-56 font-mono text-xs
     "
     >
@@ -30,7 +27,7 @@ export default function SkillsCard() {
 
             <div className="h-4 border-2 border-[#2b2b2b] bg-[#d8ccb3] p-[1px]">
               <div
-                className="h-full bg-[#2b2b2b]"
+                className="h-full bg-[#000080]"
                 style={{ width: `${skill.value}%` }}
               />
             </div>

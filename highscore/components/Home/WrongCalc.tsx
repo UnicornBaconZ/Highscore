@@ -15,16 +15,11 @@ export default function WrongCalc() {
   return (
     <div
       className="
-      border-4 border-[#2b2b2b] bg-[#FF9F1C]
-      p-4 rounded-sm
-      shadow-[6px_6px_0px_0px_#2b2b2b]
       w-56 h-56 font-mono text-sm
       space-y-3 text-[#2b2b2b]
     "
     >
-      <div className="font-bold border-b-2 border-[#2b2b2b] pb-1">
-        RETRO CALC v0.1
-      </div>
+      <div className="font-bold border-b-2  pb-1">RETRO CALC v0.1</div>
 
       <div className="flex flex-col gap-2">
         <input
@@ -46,7 +41,7 @@ export default function WrongCalc() {
         <button
           onClick={calculate}
           className="
-            bg-[#2b2b2b] text-white px-3 py-1
+            bg-[#000080] text-white px-3 py-1
             shadow-[3px_3px_0_#000]
             active:shadow-[0px_0px_0_#000]
           "
@@ -54,9 +49,7 @@ export default function WrongCalc() {
           CALCULATE
         </button>
 
-        <div className="border-t border-[#2b2b2b] pt-2">
-          Result: {result ?? '???'}
-        </div>
+        <div className="border-t pt-2">Result: {result ?? '???'}</div>
       </div>
     </div>
   )
