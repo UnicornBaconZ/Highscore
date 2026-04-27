@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function AboutPage() {
   return (
-    <section className="space-y-4">
+    <section className="mx-auto max-w-5xl space-y-4">
       <h1 className="text-3xl font-bold">About Me</h1>
 
       <div className="flex flex-col sm:flex-row">

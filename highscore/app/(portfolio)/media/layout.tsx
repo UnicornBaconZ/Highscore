@@ -6,7 +6,7 @@ export default function MediaLayout({
   children: React.ReactNode
 }) {
   return (
-    <section className="space-y-4">
+    <section className="mx-auto max-w-5xl space-y-4">
       <h1 className="text-3xl font-bold">Media</h1>
       <MediaTabs />
 

@@ -2,7 +2,7 @@ export default function SkillsCard() {
   const skills = [
     { label: 'Frontend', value: 75 },
     { label: 'Backend', value: 85 },
-    { label: 'Game Dev', value: 60 },
+    { label: 'Game Dev', value: 40 },
     { label: 'DevOps', value: 70 },
     { label: 'Sarcasm', value: 120 },
   ]

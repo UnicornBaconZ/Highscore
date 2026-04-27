@@ -14,6 +14,7 @@ const navLinks: NavLink[] = [
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
   { href: '/media/series', label: 'Media' },
+  { href: '/cookbook', label: 'Cookbook' },
 ]
 
 export function Navbar() {

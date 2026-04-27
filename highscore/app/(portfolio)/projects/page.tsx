@@ -87,7 +87,7 @@ function ProjectCard({
 
 export default function ProjectsPage() {
   return (
-    <section className="space-y-6">
+    <section className="mx-auto max-w-5xl space-y-6">
       <div className="space-y-3">
         <h1 className="text-3xl font-bold tracking-tight text-[#2b2b2b]">
           Projects

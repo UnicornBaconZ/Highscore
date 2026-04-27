@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 export default function HomePage() {
   return (
-    <section className="space-y-8">
+    <section className="mx-auto max-w-5xl space-y-8">
       <div
         className="
           max-w-xl rounded-sm border-4 border-[#2b2b2b] bg-[#f5e6c8]
