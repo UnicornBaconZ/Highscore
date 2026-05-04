@@ -96,4 +96,22 @@ export const animeData = [
       'Carnivores and herbivores struggle with instincts, love, and societal divides.',
     genres: ['Drama', 'Romance', 'Psychological'],
   },
+  {
+    id: 12,
+    title: 'My Dress-Up Darling',
+    image: '/assets/anime/mdud.jpg',
+    rating: 9.2,
+    description:
+      'A shy dollmaker and a cheerful cosplayer bond over handmade costumes.',
+    genres: ['Romance', 'Comedy', 'Slice of life'],
+  },
+  {
+    id: 13,
+    title: 'You and I Are Polar Opposites',
+    image: '/assets/anime/yaiapo.jpg',
+    rating: 9,
+    description:
+      'An outgoing girl and reserved boy discover love despite their differences.',
+    genres: ['Romance', 'Comedy', 'School'],
+  },
 ]
