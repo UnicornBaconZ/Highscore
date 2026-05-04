@@ -16,22 +16,8 @@ export default function SpotifyCard({ track }: SpotifyCardProps) {
     <div className="border-2 border-[#2b2b2b] bg-[#f5e6c8] p-4 rounded-sm shadow-[3px_3px_0px_0px_#2b2b2b] space-y-3">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-bold leading-tight">
-          {track.isPlaying ? 'Currently listening' : 'Recent track'}
+          {track.isPlaying ? 'Currently listening' : ''}
         </h2>
-
-        <div
-          className="
-            flex items-center justify-center
-            bg-[#2b2b2b] text-[#f5e6c8]
-            px-3 py-1
-            text-xs font-bold
-            border-2 border-[#2b2b2b]
-            shadow-[2px_2px_0px_0px_#000]
-            rounded-sm
-          "
-        >
-          Spotify
-        </div>
       </div>
 
       <div className="flex gap-4">
