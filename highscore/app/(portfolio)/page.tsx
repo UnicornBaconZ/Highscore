@@ -16,7 +16,9 @@ export default function HomePage() {
           p-6 shadow-[6px_6px_0px_0px_#2b2b2b]
         "
       >
-        <h1 className="mb-2 text-4xl font-bold">Hi, I&apos;m Zarin</h1>
+        <h1 className="mb-2 text-3xl font-bold sm:text-4xl">
+          Hi, I&apos;m Zarin
+        </h1>
         <p className="text-sm">
           Full-stack developer who loves retro aesthetics, clean code, and
           building fun experiments on the web.
@@ -29,8 +31,8 @@ export default function HomePage() {
           shadow-[inset_1px_1px_0_#dfdfdf,inset_-1px_-1px_0_#404040]
         "
       >
-        <div className="grid grid-cols-3 grid-rows-2 place-items-center gap-8">
-          <div className="row-span-2">
+        <div className="grid grid-cols-1 place-items-center gap-4 px-4 pb-4 md:grid-cols-3 md:grid-rows-2 md:gap-8 md:px-0 md:pb-0">
+          <div className="md:row-span-2">
             <Win98Window title="skills.exe">
               <SkillsCard />
             </Win98Window>
