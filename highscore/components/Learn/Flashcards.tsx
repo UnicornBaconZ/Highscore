@@ -3,6 +3,12 @@
 import { useEffect, useState } from 'react'
 import type { Deck } from '@/data/decks'
 import { tabButtonClass } from '@/lib/tabButton'
+import {
+  fetchStats,
+  recordAnswer,
+  type StatsBlob,
+} from '@/lib/learnStats'
+import { emptyBlob } from '@/lib/learnTypes'
 
 // Fisher-Yates shuffle, returns a new shuffled array of indices [0..n-1].
 function shuffledIndices(n: number): number[] {
@@ -18,17 +24,26 @@ export function Flashcards({ deck }: { deck: Deck }) {
   const [order, setOrder] = useState<number[]>([])
   const [pos, setPos] = useState(0)
   const [flipped, setFlipped] = useState(false)
+  const [blob, setBlob] = useState<StatsBlob>(emptyBlob())
+  const [session, setSession] = useState({ correct: 0, wrong: 0 })
 
   // Shuffle after mount and whenever the deck changes (avoids SSR mismatch).
   useEffect(() => {
     setOrder(shuffledIndices(deck.cards.length))
     setPos(0)
     setFlipped(false)
+    setSession({ correct: 0, wrong: 0 })
   }, [deck])
 
-  const card = deck.cards[order[pos] ?? 0]
+  // Load lifetime stats from the server once on mount.
+  useEffect(() => {
+    fetchStats().then(setBlob)
+  }, [])
 
-  function next() {
+  const card = deck.cards[order[pos] ?? 0]
+  const stat = card ? blob.words[card.uk] : undefined
+
+  function advance() {
     setFlipped(false)
     setPos((p) => {
       if (p < order.length - 1) return p + 1
@@ -46,6 +61,16 @@ export function Flashcards({ deck }: { deck: Deck }) {
     setOrder(shuffledIndices(deck.cards.length))
     setPos(0)
     setFlipped(false)
+  }
+
+  async function grade(correct: boolean) {
+    setSession((s) => ({
+      correct: s.correct + (correct ? 1 : 0),
+      wrong: s.wrong + (correct ? 0 : 1),
+    }))
+    advance()
+    const updated = await recordAnswer(card, deck.label, correct)
+    setBlob(updated)
   }
 
   return (
@@ -72,17 +97,42 @@ export function Flashcards({ deck }: { deck: Deck }) {
               {card.translit}
             </span>
             <span className="font-vt text-2xl text-black">{card.uk}</span>
+            {stat && (
+              <span className="mt-1 text-xs text-black/70">
+                lifetime: ✓ {stat.correct} · ✗ {stat.wrong}
+              </span>
+            )}
           </>
         )}
       </button>
 
+      {/* Grade buttons — only after the answer is revealed */}
+      {flipped ? (
+        <div className="flex items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={() => grade(false)}
+            className="flex-1 rounded-sm border-2 border-[#2b2b2b] bg-[#e9573f] px-3 py-2 text-sm font-semibold text-[#f5e6c8] shadow-[3px_3px_0px_0px_#2b2b2b] transition-all hover:shadow-[1px_1px_0px_0px_#2b2b2b] active:shadow-[0px_0px_0px_0px_#2b2b2b]"
+          >
+            ✗ Got it wrong
+          </button>
+          <button
+            type="button"
+            onClick={() => grade(true)}
+            className="flex-1 rounded-sm border-2 border-[#2b2b2b] bg-[#3f9142] px-3 py-2 text-sm font-semibold text-[#f5e6c8] shadow-[3px_3px_0px_0px_#2b2b2b] transition-all hover:shadow-[1px_1px_0px_0px_#2b2b2b] active:shadow-[0px_0px_0px_0px_#2b2b2b]"
+          >
+            ✓ Got it right
+          </button>
+        </div>
+      ) : (
+        <p className="text-center text-xs text-black/60">
+          Reveal the answer, then mark whether you got it right.
+        </p>
+      )}
+
       {/* Controls */}
       <div className="flex items-center justify-between gap-3">
-        <button
-          type="button"
-          onClick={prev}
-          className={tabButtonClass(false)}
-        >
+        <button type="button" onClick={prev} className={tabButtonClass(false)}>
           ← Prev
         </button>
         <button
@@ -93,14 +143,16 @@ export function Flashcards({ deck }: { deck: Deck }) {
         >
           {pos + 1} / {deck.cards.length}
         </button>
-        <button
-          type="button"
-          onClick={next}
-          className={tabButtonClass(false)}
-        >
-          Next →
+        <button type="button" onClick={advance} className={tabButtonClass(false)}>
+          Skip →
         </button>
       </div>
+
+      {/* Session tally */}
+      <p className="text-center text-xs text-black/60">
+        This session: <span className="text-[#3f9142]">✓ {session.correct}</span>{' '}
+        · <span className="text-[#e9573f]">✗ {session.wrong}</span>
+      </p>
     </div>
   )
 }

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# learn stats (local data file, per-machine)
+/data/learn-stats.json
