@@ -65,6 +65,68 @@ export function worstWords(blob: StatsBlob): WordStat[] {
   })
 }
 
+export type AnswerInput = {
+  uk: string
+  en: string
+  translit: string
+  deck: string
+  correct: boolean
+}
+
+// Coerce any unknown value into a valid StatsBlob. Guards against partial or
+// error responses (e.g. an API 400 body) ever reaching component state.
+export function normalizeBlob(x: unknown): StatsBlob {
+  const blob = emptyBlob()
+  if (x && typeof x === 'object') {
+    const o = x as Partial<StatsBlob>
+    if (o.words && typeof o.words === 'object') blob.words = o.words
+    if (o.streak && typeof o.streak === 'object') {
+      blob.streak = {
+        current: Number(o.streak.current) || 0,
+        best: Number(o.streak.best) || 0,
+        lastPracticed: o.streak.lastPracticed ?? null,
+      }
+    }
+  }
+  return blob
+}
+
+// Advance the daily streak. Shared by server and client fallback.
+export function bumpStreak(blob: StatsBlob): void {
+  const today = todayStr()
+  const s = blob.streak
+  if (s.lastPracticed === today) {
+    // already counted today
+  } else if (s.lastPracticed && daysBetween(s.lastPracticed, today) === 1) {
+    s.current += 1
+  } else {
+    s.current = 1
+  }
+  s.best = Math.max(s.best, s.current)
+  s.lastPracticed = today
+}
+
+// Apply one graded answer to a blob in place and return it. Single source of
+// truth for the mutation — used server-side and as the client fallback.
+export function applyAnswer(blob: StatsBlob, input: AnswerInput): StatsBlob {
+  const existing = blob.words[input.uk] ?? {
+    uk: input.uk,
+    en: input.en,
+    translit: input.translit,
+    deck: input.deck,
+    correct: 0,
+    wrong: 0,
+  }
+  if (input.correct) existing.correct += 1
+  else existing.wrong += 1
+  existing.en = input.en
+  existing.translit = input.translit
+  existing.deck = input.deck
+  blob.words[input.uk] = existing
+  bumpStreak(blob)
+  return blob
+}
+
 export function getStreakStatus(streak: StreakData): StreakStatus {
   if (!streak.lastPracticed) {
     return { ...streak, status: 'none', effectiveCurrent: 0 }
