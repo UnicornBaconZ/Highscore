@@ -1,9 +1,10 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { decks, alphabet } from '@/data/decks'
+import { decks } from '@/data/decks'
 import { Flashcards } from '@/components/Learn/Flashcards'
 import { Quiz } from '@/components/Learn/Quiz'
+import { VerbTable } from '@/components/Learn/VerbTable'
 import { tabButtonClass } from '@/lib/tabButton'
 
 type Mode = 'flashcards' | 'quiz'
@@ -67,25 +68,8 @@ export default function LearnPage() {
         <Quiz key={deck.id} deck={deck} />
       )}
 
-      {/* Alphabet primer */}
-      <div className="space-y-3">
-        <h2 className="text-xl font-bold">
-          The Alphabet — <span className="font-vt">Абетка</span>
-        </h2>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
-          {alphabet.map((a) => (
-            <div
-              key={a.letter}
-              className="rounded-md border-2 border-black bg-white px-3 py-2"
-            >
-              <div className="font-vt text-2xl font-semibold text-black">
-                {a.letter}
-              </div>
-              <div className="text-xs text-black">{a.sound}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Verb conjugations */}
+      <VerbTable />
     </section>
   )
 }
